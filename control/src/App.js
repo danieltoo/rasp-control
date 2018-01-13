@@ -6,24 +6,16 @@ import url from './url.js'
 class App extends Component {
   constructor () {
     super();
-    this.handleChange = this.handleChange.bind(this);
     this.sendWord = this.sendWord.bind(this);
     this.state = {
-      text : ""
+      text : "",
+      url : ""
     }
   }
 
-  handleChange(event) {
-    console.log(event.target.value)
-
-    this.setState({text: event.target.value});
-  } 
 
   sendWord() {
-    
-
     fetch(`http://${url.url}/type/${this.state.text}`,{mode: 'no-cors'});
-
   }
 
   render() {
@@ -31,7 +23,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h4 className="App-title">Send Command</h4>
-          <textarea value={this.state.text} onChange={this.handleChange}></textarea><br/>
+          <textarea value={this.state.text} onChange={(event) => this.setState({url : event.target.value})}></textarea><br/>
           <button className="button" onClick={this.sendWord} >Send</button>
         </header>
 

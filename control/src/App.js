@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import url from './url.js'
 
 class App extends Component {
   constructor () {
@@ -19,9 +20,9 @@ class App extends Component {
   } 
 
   sendWord() {
+    
 
-
-    fetch(`http://10.0.0.7:5000/type/${this.state.text}`,{mode: 'no-cors'});
+    fetch(`http://${url.url}/type/${this.state.text}`,{mode: 'no-cors'});
 
   }
 

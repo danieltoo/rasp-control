@@ -1,0 +1,7 @@
+[Desktop Entry]
+Comment=Rasp-control launcher
+Terminal=true
+Name=Rasp-control
+Exec=python /home/pi/Desktop/rasp-control/server/server.py
+Type=Application
+Icon=/home/pi/Desktop/rasp-control/raspberry-pi-logo.png

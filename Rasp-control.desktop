@@ -2,6 +2,6 @@
 Comment=Rasp-control launcher
 Terminal=true
 Name=Rasp-control
-Exec=python /home/pi/Desktop/rasp-control/server/server.py
+Exec=python /home/pi/Desktop/Rasp-control/server/server.py
 Type=Application
-Icon=/home/pi/Desktop/rasp-control/raspberry-pi-logo.png
+Icon=/home/pi/Desktop/Rasp-control/raspberry-pi-logo.png

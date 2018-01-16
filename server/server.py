@@ -24,6 +24,12 @@ def send_grade_distance(grade, distance):
     print command
     return 'Grade and distance {} {}'.format(grade, distance)  
 
+@app.route('/click/<button>')
+def send_click(button):
+    command = 'xdotool click ' + button
+    commands.getoutput(command)
+    print command
+    return 'Button %s' % button
 
 @app.route('/controlpi')
 def index():

@@ -52,16 +52,26 @@ class App extends Component {
     fetch(`http://${url.url}/mousemove_relative/90/30`,{mode: 'no-cors'});
   }
 
+  clickLeft () {
+    fetch(`http://${url.url}/click/1`,{mode: 'no-cors'});
+  }
+
+  clickRigth () {
+    fetch(`http://${url.url}/click/3`,{mode: 'no-cors'});
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h4 className="App-title">Send Command {this.state.key}</h4>
           <textarea value={this.state.word} onChange={this.sendKey}></textarea><br/>
-          <button className="button" onClick={this.mouseTop} >Top</button><br/>
-          <button className="button" onClick={this.mouseLeft} >Left</button>
-          <button className="button" onClick={this.mouseRigth} >Rigth</button><br/>
-          <button className="button" onClick={this.mouseBottom} >Bottom</button><br/>
+          <button className="button" onClick={this.mouseTop} >UP</button><br/>
+          <button className="button" onClick={this.mouseLeft} >LEFT</button>
+          <button className="button" onClick={this.mouseRigth} >RIGTH</button><br/>
+          <button className="button" onClick={this.mouseBottom} >DOWN</button><br/><br/>
+          <button className="button" onClick={this.clickLeft} >Left</button>
+          <button className="button" onClick={this.clickRigth} >Rigth</button>
         </header>
 
       </div>

@@ -5,13 +5,25 @@ app = Flask(__name__ )
 
 @app.route('/type/<type>')
 def send_type(type):
-    commands.getoutput('xdotool type ' + type)
+    command = 'xdotool type ' + type
+    commands.getoutput(command)
+    print command
     return 'type %s' % type
 
 @app.route('/key/<key>')
 def send_key(key):
-    commands.getoutput('xdotool key ' + key)
+    command = 'xdotool key ' + key
+    commands.getoutput(command)
+    print command
     return 'key %s' % key
+
+@app.route('/mousemove_relative/<grade>/<distance>')
+def send_grade_distance(grade, distance):
+    command = 'xdotool mousemove_relative --polar {} {}'.format(grade ,distance)
+    commands.getoutput(command)
+    print command
+    return 'Grade and distance {} {}'.format(grade, distance)  
+
 
 @app.route('/controlpi')
 def index():

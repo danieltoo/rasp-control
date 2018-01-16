@@ -7,14 +7,13 @@ const  specialCharacters = {
   10 : "KP_Enter",
   32 : "space",
   35 : "numbersign",
-  47: "slash"
+  47 : "slash"
 }
           
 
 class App extends Component {
   constructor () {
     super();
-    this.sendWord = this.sendWord.bind(this);
     this.sendKey = this.sendKey.bind(this);
     this.state = {
       word : "",
@@ -23,18 +22,10 @@ class App extends Component {
     }
   }
 
-  sendWord() {
-    fetch(`http://${url.url}/type/${this.state.word}`,{mode: 'no-cors'});
-  }
-
-  
-
   sendKey (event) {
     let word = event.target.value
     let wordLeng = word.length
     let key = word[wordLeng - 1]
-    
-
     if(this.state.wordLeng < wordLeng){
       let keyCode = key.charCodeAt(0)
       this.setState({key : keyCode})
@@ -48,13 +39,29 @@ class App extends Component {
     this.setState({ word : word, wordLeng : wordLeng })
   }
 
+  mouseTop () {
+    fetch(`http://${url.url}/mousemove_relative/0/30`,{mode: 'no-cors'});
+  }
+  mouseBottom () {
+    fetch(`http://${url.url}/mousemove_relative/180/30`,{mode: 'no-cors'});
+  }
+  mouseLeft () {
+    fetch(`http://${url.url}/mousemove_relative/270/30`,{mode: 'no-cors'});
+  }
+  mouseRigth () {
+    fetch(`http://${url.url}/mousemove_relative/90/30`,{mode: 'no-cors'});
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h4 className="App-title">Send Command {this.state.key}</h4>
           <textarea value={this.state.word} onChange={this.sendKey}></textarea><br/>
-          <button className="button" onClick={this.sendWord} >Send</button>
+          <button className="button" onClick={this.mouseTop} >Top</button><br/>
+          <button className="button" onClick={this.mouseLeft} >Left</button>
+          <button className="button" onClick={this.mouseRigth} >Rigth</button><br/>
+          <button className="button" onClick={this.mouseBottom} >Bottom</button><br/>
         </header>
 
       </div>

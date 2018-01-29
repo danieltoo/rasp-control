@@ -66,7 +66,7 @@ class App extends Component {
         <header className="App-header">
           <h4 className="App-title">Send Command {this.state.key}</h4>
           <textarea value={this.state.word} onChange={this.sendKey}></textarea><br/>
-          <button className="button" onClick={this.mouseTop} >UP</button><br/>
+          <button className="button" onMouseOver={this.mouseTop}>UP</button><br/>
           <button className="button" onClick={this.mouseLeft} >LEFT</button>
           <button className="button" onClick={this.mouseRigth} >RIGTH</button><br/>
           <button className="button" onClick={this.mouseBottom} >DOWN</button><br/><br/>
